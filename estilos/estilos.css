@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@-webkit-keyframes colorMenu {
+  from {
+    background-color: #F1F1F1;
+    opacity: 0.2;
+  }
+  to {
+    background-color: #48887aad;
+    opacity: 1;
+  }
+}
+
+@keyframes colorMenu {
+  from {
+    background-color: #F1F1F1;
+    opacity: 0.2;
+  }
+  to {
+    background-color: #48887aad;
+    opacity: 1;
+  }
+}
+
+.menu {
+  background: -webkit-gradient(linear, left top, left bottom, from(#48887aad), color-stop(90%, #F1F1F1));
+  background: linear-gradient(#48887aad 0%, #F1F1F1 90%);
+}
+
+@media only screen and (min-width: 786px) {
+  .menu a:hover {
+    border-radius: 5px;
+    -webkit-animation-name: colorMenu;
+            animation-name: colorMenu;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    background-color: #48887aad;
+  }
+}
+
+main {
+  background: url(../img/logoBG2.svg) center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #F1F1F1;
+}
+
+.img-car {
+  width: 52%;
+  border-radius: 10%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .img-car {
+    width: 40%;
+  }
+}
+
+h1 {
+  font-size: 50px;
+  font-family: courgette;
+  text-align: center;
+  color: #48887A;
+  padding: 10px 0 10px 0;
+  font-weight: 600;
+}
+
+p {
+  font-family: roboto, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #575757;
+}
+
+p a {
+  color: #48887A;
+  text-decoration: none;
+}
+
+.texto {
+  background-color: #F1F1F180;
+}
+
+.list-group-item {
+  font-family: roboto, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #575757;
+}
+
+.logoWhat {
+  height: 50px;
+  position: fixed;
+  right: 1%;
+  bottom: 8%;
+  -webkit-box-shadow: 5px -5px 5px #48887aad;
+          box-shadow: 5px -5px 5px #48887aad;
+  border-radius: 25px 25px 25px 0px;
+}
+
+footer {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1F1F1), color-stop(90%, #48887A));
+  background: linear-gradient(#F1F1F1 0%, #48887A 90%);
+}
+
+footer img {
+  height: 40px !important;
+  padding-right: 25px;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: courgette;
+  text-align: center;
+  color: #575757;
+  padding: 10px 0 10px 0;
+}
+
+@-webkit-keyframes entrada {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes entrada {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.logo {
+  height: 60px;
+  padding: 3px;
+  -webkit-animation-name: entrada;
+          animation-name: entrada;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+}
+
+@media only screen and (min-width: 576px) {
+  .entradaMenu {
+    -webkit-animation-name: entrada;
+            animation-name: entrada;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+  }
+}
+
+.entradaMain {
+  -webkit-animation-name: entrada;
+          animation-name: entrada;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+}
+
+.entradaBar {
+  -webkit-animation-name: entrada;
+          animation-name: entrada;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+}
+
+.card {
+  font-family: roboto, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #575757;
+  -webkit-transition: -webkit-transform 0.9s ease;
+  transition: -webkit-transform 0.9s ease;
+  transition: transform 0.9s ease;
+  transition: transform 0.9s ease, -webkit-transform 0.9s ease;
+  background-color: #F1F1F180;
+}
+
+@media only screen and (min-width: 786px) {
+  .card:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+.boton {
+  font-weight: 500;
+  font-size: large;
+  letter-spacing: 1px;
+  font-family: palanquin dark;
+}
+/*# sourceMappingURL=estilos.css.map */

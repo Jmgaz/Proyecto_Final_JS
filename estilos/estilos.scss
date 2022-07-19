@@ -1,0 +1,172 @@
+// variables
+$color-title-verde: #48887A;
+$color-verde-opaco:#48887aad;
+$color-title-gris: #575757;
+$color-blanco: #F1F1F1;
+$color-blanco-opaco: #F1F1F180;
+$font-title-1: palanquin dark;
+$font-title-2: courgette;
+$font-text: roboto, sans-serif;;
+$letter-space: 1px; 
+
+// Reset
+*{
+    padding: 0;
+    margin: 0;
+}
+
+// keyframe animación a:hover
+@keyframes colorMenu{
+    from{background-color:$color-blanco; opacity: 0.2;}
+    to{background-color:$color-verde-opaco; opacity: 1;}
+}
+
+
+.menu{
+    background: linear-gradient($color-verde-opaco 0%,$color-blanco 90% );
+    @media only screen and (min-width: 786px){
+        a:hover{
+            border-radius: 5px;
+            animation-name: colorMenu;
+            animation-duration: 1.5s;
+            background-color: $color-verde-opaco;
+        }
+    } 
+}
+main{
+    background: url(../img/logoBG2.svg) center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: $color-blanco;
+}
+
+//imágenes carousel
+.img-car{
+    width: 52%;
+    border-radius: 10%;
+    @media only screen and (min-width: 1200px){
+        width: 40%;
+    }
+}
+
+
+h1{
+    font-size: 50px;
+    font-family:$font-title-2;
+    text-align: center;
+    color: $color-title-verde;
+    padding: 10px 0 10px 0;
+    font-weight: 600;
+}
+
+// mixin p
+@mixin estilo-texto {
+    font-family: $font-text;
+    letter-spacing: $letter-space;
+    font-weight: 600;
+    color: $color-title-gris
+
+}
+p{
+    @include estilo-texto;
+    a{
+        color: $color-title-verde;
+        text-decoration: none;
+    }
+}
+// fondo para los textos y cards
+.texto{
+    background-color: $color-blanco-opaco;
+}
+.list-group-item{
+    @include estilo-texto;
+}
+.logoWhat{
+    height: 50px;
+    position: fixed;
+    right: 1%;
+    bottom: 8%;
+    box-shadow: 5px -5px 5px $color-verde-opaco;
+    border-radius:25px 25px 25px 0px;
+}
+footer{
+    background: linear-gradient($color-blanco 0%, $color-title-verde 90% );
+    img{
+        height: 40px !important;
+        padding-right:25px;
+    }
+}
+
+h2{
+    font-size: 30px;
+    font-family:$font-title-2;
+    text-align: center;
+    color: $color-title-gris;
+    padding: 10px 0 10px 0;
+}
+
+// mixin logos header
+@mixin estilo-logo{
+    height: 60px;
+    padding: 3px;
+}
+
+// mixin animación de entrada
+@mixin entrada {
+    animation-name: entrada;
+    animation-iteration-count: 1;
+}
+
+// animación de entrada
+@keyframes entrada{
+    0%{opacity: 0; }
+    100%{opacity: 1;}
+}
+
+// logos header
+.logo{
+    @include estilo-logo;
+    @include entrada;
+    animation-duration: 5s;
+    
+}
+
+// animación menú header solo en vista mayor a 576px y solo en index.html
+.entradaMenu{
+    @media only screen and (min-width: 576px){
+        @include entrada;
+        animation-duration: 4s;
+    }
+}
+
+// animación entrada main del index.html
+.entradaMain{
+    @include entrada;
+    animation-duration: 6s;
+}
+
+// animación entrada main de bar.html
+.entradaBar{
+    @include entrada;
+    animation-duration: 5s;
+}
+
+// tarjetas de productos.html (hover solo en vista mayor a 786)
+.card{
+    @include estilo-texto;
+    transition: transform 0.9s ease;
+    @media only screen and (min-width: 786px){
+        &:hover{
+        transform: scale(1.1)}
+    }
+    background-color: $color-blanco-opaco;
+}
+
+//botones del form de contacto.html
+.boton{
+    font-weight: 500;
+    font-size: large;
+    letter-spacing: 1px;
+    font-family: $font-title-1;
+}
