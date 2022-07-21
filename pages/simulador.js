@@ -59,9 +59,7 @@ function almacenarProductosLocalStorage() {
 function obtenerProductosLocalStorage() {
     let productosAlmacenados = localStorage.getItem("listaProductos");
     console.log(typeof productosAlmacenados)
-    if (productosAlmacenados !== null) {
-        productos = JSON.parse(productosAlmacenados);
-    }
+    productosAlmacenados !== null && productos == JSON.parse(productosAlmacenados);
 }
 
 function agregarIngredientesRoll() {
