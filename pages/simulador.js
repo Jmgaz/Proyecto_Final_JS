@@ -5,6 +5,7 @@ let inputNombre;
 let inputPrecioCompra;
 let tabla;
 
+
 class Productos {
     constructor(nombre, precioCompra) {
         this.nombre = nombre.toUpperCase();
@@ -31,9 +32,12 @@ function validarFormulario(event) {
     productos.push(producto);
     formulario.reset();
 
+    
     limpiarTabla();
     agregarProductosTabla();
     almacenarProductosLocalStorage();
+
+    
 }
 
 function agregarProductosTabla() {
@@ -56,10 +60,18 @@ function almacenarProductosLocalStorage() {
     localStorage.setItem("listaProductos", JSON.stringify(productos));
 }
 
+// function obtenerProductosLocalStorage() {
+//     let productosAlmacenados = localStorage.getItem("listaProductos");
+//     console.log(typeof productosAlmacenados)
+//     productosAlmacenados !== null && productos == JSON.parse(productosAlmacenados);
+// }
+
 function obtenerProductosLocalStorage() {
     let productosAlmacenados = localStorage.getItem("listaProductos");
     console.log(typeof productosAlmacenados)
-    productosAlmacenados !== null && productos == JSON.parse(productosAlmacenados);
+    if (productosAlmacenados !== null) {
+        productos = JSON.parse(productosAlmacenados);
+    }
 }
 
 function agregarIngredientesRoll() {
@@ -70,12 +82,20 @@ function agregarIngredientesRoll() {
 
 }
 
+function limpiarLS (){
+    let btnEliminarLS = document.getElementById("eliminarLS")
+    btnEliminarLS.onclick = () => localStorage.clear
+    console.log(tabla.rows.length)
+}
+
+
 
 function main() {
     inicializarElementos();
     inicializarEventos();
     obtenerProductosLocalStorage();
     agregarProductosTabla();
+    limpiarLS();
 }
 
 main();
