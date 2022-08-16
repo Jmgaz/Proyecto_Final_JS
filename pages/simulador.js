@@ -1,7 +1,8 @@
+//Acceder a elementos HTML posteriores.
 let tablaProductos = document.getElementById("tablaProductos")
 let preciosCombos = document.getElementById("preciosCombos")
 
-
+//Obtener datos de mis productos desde mi Mockapi, y creación de tabla con nombres y precio de cada producto.
 async function obtenerCombosTabla(){
     let response = await fetch("https://62e7262f0e5d74566aef7f19.mockapi.io/Productos");
     let listaProductos = await response.json()
@@ -22,7 +23,7 @@ async function obtenerCombosTabla(){
 
     
 }
-
+//Función para obtener los precios de los rolls, dependiendo de los ingredientes elegidos, mediante checkbox.
 function sumarProd(){
     const sumarProductos = document.querySelector('#sumarProductos');
     sumarProductos.addEventListener("click", () => {
@@ -45,7 +46,6 @@ function sumarProd(){
             sumaNombres += nombresProductos[i];
         }
         
-    
         Swal.fire({
             title: sumaNombres,
             text: suma,
@@ -55,6 +55,7 @@ function sumarProd(){
             
         });
         
+        //Agregar, mediante innerText, los ingredientes elegidos, y el precio total del roll.
         let comboNuevo = document.createElement("h2")
         comboNuevo.innerText = sumaNombres
         let precioNuevo = document.createElement("h3")
@@ -66,8 +67,6 @@ function sumarProd(){
     });
 
 }
-
-
 
 function main(){
     obtenerCombosTabla();

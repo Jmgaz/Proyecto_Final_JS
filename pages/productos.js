@@ -1,9 +1,7 @@
-
+//Acceder a elementos HTML posteriores.
 let contenedorCombos = document.getElementById("contenedor-combos")
 
-
-
-
+//Obtener datos de mis rolls desde mi Mockapi, y creación de Cards con nombre e imagen de cada Combo.
 async function obtenerCombos(){
     let response = await fetch("https://62e7262f0e5d74566aef7f19.mockapi.io/listaCombos");
     let listaCombos = await response.json()
@@ -23,7 +21,7 @@ async function obtenerCombos(){
         
     });
     
-
+//Botones que ejecutan un alert con los Rolls que contiene cada Combo.
 const idBoton1 = document.querySelector("#btnCombo1");
 idBoton1.addEventListener("click", () => {
     Swal.fire({
@@ -100,6 +98,7 @@ idBoton5.addEventListener("click", () => {
 
 })
 }
+
 obtenerCombos();
 
 
