@@ -23,7 +23,7 @@ async function obtenerCombosTabla(){
 
     
 }
-//Función para obtener los precios de los rolls, dependiendo de los ingredientes elegidos, mediante checkbox.
+//Función para obtener los precios de los rolls, dependiendo de los ingredientes elegidos, mediante checkbox. La suma no comienza desde 0 ya que cada roll tiene un costo fijo de $105.
 function sumarProd(){
     const sumarProductos = document.querySelector('#sumarProductos');
     sumarProductos.addEventListener("click", () => {
