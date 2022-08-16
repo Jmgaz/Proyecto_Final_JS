@@ -116,6 +116,14 @@ h2 {
   font-size: 30px;
   font-family: courgette;
   text-align: center;
+  color: #48887A;
+  padding: 10px 0 10px 0;
+}
+
+h3 {
+  font-size: 30px;
+  font-family: courgette;
+  text-align: center;
   color: #575757;
   padding: 10px 0 10px 0;
 }

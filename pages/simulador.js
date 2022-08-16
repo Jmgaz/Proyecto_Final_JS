@@ -1,101 +1,77 @@
-let productos = [];
-
-let formulario;
-let inputNombre;
-let inputPrecioCompra;
-let tabla;
+let tablaProductos = document.getElementById("tablaProductos")
+let preciosCombos = document.getElementById("preciosCombos")
 
 
-class Productos {
-    constructor(nombre, precioCompra) {
-        this.nombre = nombre.toUpperCase();
-        this.precioCompra = precioCompra;
-    }
-}
-
-function inicializarElementos() {
-    formulario = document.getElementById("formulario");
-    inputNombre = document.getElementById("inputNombreProducto");
-    inputPrecioCompra = document.getElementById("inputPrecioCompra");
-    tabla = document.getElementById("tablaProductos");
-}
-
-function inicializarEventos() {
-    formulario.onsubmit = (event) => validarFormulario(event);
-}
-
-function validarFormulario(event) {
-    event.preventDefault();
-    let nombre = inputNombre.value;
-    let precioCompra = parseFloat(inputPrecioCompra.value);
-    let producto = new Productos(nombre, precioCompra);
-    productos.push(producto);
-    formulario.reset();
-
-    
-    limpiarTabla();
-    agregarProductosTabla();
-    almacenarProductosLocalStorage();
-
-    
-}
-
-function agregarProductosTabla() {
-    productos.forEach((producto) => {
+async function obtenerCombosTabla(){
+    let response = await fetch("https://62e7262f0e5d74566aef7f19.mockapi.io/Productos");
+    let listaProductos = await response.json()
+    listaProductos.forEach(producto => {
         let filaTabla = document.createElement("tr");
+        filaTabla.id = `columna-${producto.id}`
         filaTabla.innerHTML = `
         <td>${producto.nombre}</td>
-        <td>${producto.precioCompra}</td>`;
-        tabla.tBodies[0].append(filaTabla);
+        <td>${producto.precio}</td>
+        <td>
+            <input class="form-check-input" type="checkbox"  name="producto" value="${producto.precio}" id="${producto.nombre}">
+            <label class="form-check-label"></label>
+        </td>
+        `
+        tablaProductos.append(filaTabla)
+    })
+    
+
+    
+}
+
+function sumarProd(){
+    const sumarProductos = document.querySelector('#sumarProductos');
+    sumarProductos.addEventListener("click", () => {
+        let checkProductos = document.querySelectorAll('input[name ="producto"]:checked');
+        let precioTotal = [];
+        let nombresProductos = [];
+        checkProductos.forEach((checkbox) => {
+            precioTotal.push(checkbox.value);
+            nombresProductos.push(checkbox.id);
+        });
+        parseInt(precioTotal);
+        let suma = 105;
+        for (let i = 0; i < precioTotal.length; i++){
+            suma += parseInt(precioTotal[i]);
+            
+        };
+        
+        let sumaNombres = ""
+        for (let i = 0; i < nombresProductos.length; i++){
+            sumaNombres += nombresProductos[i];
+        }
+        
+    
+        Swal.fire({
+            title: sumaNombres,
+            text: suma,
+            color: '#48887A',
+            background: '#F1F1F1 url(../img/logoBG2.svg)',
+            confirmButtonColor: '#48887aad'
+            
+        });
+        
+        let comboNuevo = document.createElement("h2")
+        comboNuevo.innerText = sumaNombres
+        let precioNuevo = document.createElement("h3")
+        precioNuevo.innerText = suma
+        preciosCombos.append(comboNuevo);
+        preciosCombos.append(precioNuevo);
+
+
     });
-}
-
-function limpiarTabla() {
-    while (tabla.rows.length > 1) {
-        tabla.deleteRow(1);
-    }
-}
-
-function almacenarProductosLocalStorage() {
-    localStorage.setItem("listaProductos", JSON.stringify(productos));
-}
-
-// function obtenerProductosLocalStorage() {
-//     let productosAlmacenados = localStorage.getItem("listaProductos");
-//     console.log(typeof productosAlmacenados)
-//     productosAlmacenados !== null && productos == JSON.parse(productosAlmacenados);
-// }
-
-function obtenerProductosLocalStorage() {
-    let productosAlmacenados = localStorage.getItem("listaProductos");
-    console.log(typeof productosAlmacenados)
-    if (productosAlmacenados !== null) {
-        productos = JSON.parse(productosAlmacenados);
-    }
-}
-
-function agregarIngredientesRoll() {
-    for (const ingredientes of productos){
-        let opcion = document.createElement("div")
-        opcion.id
-    }
 
 }
 
-function limpiarLS (){
-    let btnEliminarLS = document.getElementById("eliminarLS")
-    btnEliminarLS.onclick = () => localStorage.clear
-    console.log(tabla.rows.length)
-}
 
 
-
-function main() {
-    inicializarElementos();
-    inicializarEventos();
-    obtenerProductosLocalStorage();
-    agregarProductosTabla();
-    limpiarLS();
+function main(){
+    obtenerCombosTabla();
+    sumarProd();
 }
 
 main();

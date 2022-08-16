@@ -20,9 +20,11 @@ async function obtenerCombos(){
                 </div>
             </div>`
         contenedorCombos.append(columna)
+        
     });
+    
 
-    const idBoton1 = document.querySelector("#btnCombo1");
+const idBoton1 = document.querySelector("#btnCombo1");
 idBoton1.addEventListener("click", () => {
     Swal.fire({
         title: 'Combo 10',
@@ -30,7 +32,7 @@ idBoton1.addEventListener("click", () => {
         imageWidth: 400,
         imageHeight: 300,
         imageAlt: 'Combo 10',
-        text: listaCombos[0].rolls,
+        text: listaCombos[0].ingredientes,
         color: '#48887A',
         background: '#F1F1F1 url(../img/logoBG2.svg)',
         confirmButtonColor: '#48887aad',
@@ -45,7 +47,7 @@ idBoton2.addEventListener("click", () => {
         imageWidth: 400,
         imageHeight: 300,
         imageAlt: 'Combo 15',
-        text: listaCombos[1].rolls,
+        text: listaCombos[1].ingredientes,
         color: '#48887A',
         background: '#F1F1F1 url(../img/logoBG2.svg)',
         confirmButtonColor: '#48887aad',
@@ -60,7 +62,7 @@ idBoton3.addEventListener("click", () => {
         imageWidth: 400,
         imageHeight: 300,
         imageAlt: 'Combo 20',
-        text: listaCombos[2].rolls,
+        text: listaCombos[2].ingredientes,
         color: '#48887A',
         background: '#F1F1F1 url(../img/logoBG2.svg)',
         confirmButtonColor: '#48887aad',
@@ -75,7 +77,7 @@ idBoton4.addEventListener("click", () => {
         imageWidth: 400,
         imageHeight: 300,
         imageAlt: 'Combo 30',
-        text: listaCombos[3].rolls,
+        text: listaCombos[3].ingredientes,
         color: '#48887A',
         background: '#F1F1F1 url(../img/logoBG2.svg)',
         confirmButtonColor: '#48887aad',
@@ -90,7 +92,7 @@ idBoton5.addEventListener("click", () => {
         imageWidth: 400,
         imageHeight: 300,
         imageAlt: 'Combo 40',
-        text: listaCombos[4].rolls,
+        text: listaCombos[4].ingredientes,
         color: '#48887A',
         background: '#F1F1F1 url(../img/logoBG2.svg)',
         confirmButtonColor: '#48887aad',
